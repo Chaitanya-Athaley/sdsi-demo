@@ -1,0 +1,24 @@
+spring:
+  profiles:
+    active: test
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    username: sa
+    password:
+  jpa:
+    show-sql: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+flash-sale:
+  reservation:
+    ttl-seconds: 120
+  expiration:
+    interval-ms: 5000
+    batch-size: 100
+
+logging:
+  level:
+    root: WARN
+    com.example.flashsale: DEBUG

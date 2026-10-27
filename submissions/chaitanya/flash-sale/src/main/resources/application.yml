@@ -1,0 +1,103 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: flash-sale
+
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+  datasource:
+    url: ${FLASH_SALE_DB_URL:jdbc:h2:file:./data/flashsale;DB_CLOSE_DELAY=-1;MODE=PostgreSQL}
+    username: ${FLASH_SALE_DB_USERNAME:sa}
+    password: ${FLASH_SALE_DB_PASSWORD:}
+    driver-class-name: org.h2.Driver
+
+  h2:
+    console:
+      enabled: ${H2_CONSOLE_ENABLED:true}
+      path: ${H2_CONSOLE_PATH:/h2-console}
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    show-sql: ${JPA_SHOW_SQL:false}
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    default-property-inclusion: non_null
+
+flash-sale:
+  reservation:
+    # Default TTL for reservations in seconds
+    ttl-seconds: ${RESERVATION_TTL_SECONDS:120}
+  expiration:
+    # Interval between scheduled expiration scans in milliseconds
+    interval-ms: ${EXPIRATION_INTERVAL_MS:5000}
+    # Max reservations to expire per batch
+    batch-size: 100
+
+logging:
+  level:
+    root: ${LOGGING_LEVEL:INFO}
+    com.example.flashsale: ${LOGGING_LEVEL:INFO}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when-authorized
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  h2:
+    console:
+      enabled: true
+
+logging:
+  level:
+    com.example.flashsale: DEBUG
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+  h2:
+    console:
+      enabled: false
+  flyway:
+    locations: classpath:db/migration
+
+logging:
+  level:
+    com.example.flashsale: DEBUG
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  h2:
+    console:
+      enabled: false
+
+logging:
+  level:
+    com.example.flashsale: WARN

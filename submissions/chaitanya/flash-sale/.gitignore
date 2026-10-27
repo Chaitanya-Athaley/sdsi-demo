@@ -1,0 +1,42 @@
+# Compiled output
+target/
+*.class
+*.jar
+*.war
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+!.env.example
+
+# Database files (local H2)
+data/
+*.mv.db
+*.trace.db
+
+# Logs
+*.log
+logs/
+
+# Maven wrapper
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+# Temporary/hack files
+custom-cacerts
+ExtractZip.java
+ImportCorpCert.java

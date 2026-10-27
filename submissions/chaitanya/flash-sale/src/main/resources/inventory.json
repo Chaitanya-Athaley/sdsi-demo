@@ -1,0 +1,62 @@
+[
+  {
+    "sku": "PHONE-15-PRO",
+    "name": "Phone 15 Pro 256GB",
+    "initialStock": 100,
+    "purchaseLimit": 2
+  },
+  {
+    "sku": "PHONE-15",
+    "name": "Phone 15 128GB",
+    "initialStock": 200,
+    "purchaseLimit": 3
+  },
+  {
+    "sku": "LAPTOP-X1",
+    "name": "Laptop X1 16GB",
+    "initialStock": 50,
+    "purchaseLimit": 1
+  },
+  {
+    "sku": "TABLET-S9",
+    "name": "Tablet S9 128GB",
+    "initialStock": 75,
+    "purchaseLimit": 2
+  },
+  {
+    "sku": "WATCH-U2",
+    "name": "Smartwatch U2 45mm",
+    "initialStock": 150,
+    "purchaseLimit": 5
+  },
+  {
+    "sku": "BUDS-PRO2",
+    "name": "Earbuds Pro 2",
+    "initialStock": 500,
+    "purchaseLimit": 10
+  },
+  {
+    "sku": "CHARGER-65W",
+    "name": "65W GaN Charger",
+    "initialStock": 1000,
+    "purchaseLimit": 20
+  },
+  {
+    "sku": "CABLE-USBC",
+    "name": "USB-C to USB-C Cable 2m",
+    "initialStock": 2000,
+    "purchaseLimit": 50
+  },
+  {
+    "sku": "STAND-MAG",
+    "name": "Magnetic Charging Stand",
+    "initialStock": 300,
+    "purchaseLimit": 5
+  },
+  {
+    "sku": "CASE-LEATHER",
+    "name": "Leather Phone Case",
+    "initialStock": 80,
+    "purchaseLimit": 3
+  }
+]
